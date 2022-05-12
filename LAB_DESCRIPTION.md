@@ -7,8 +7,12 @@ re-factored to use the ServiceLoader available out of box in Java platform Stand
 
 ### Objectives
 
-The goal of this assignment is to: 1) to understand the pros and cons of the basic
-ServiceLoader extension mechanism provided by the Java standard platform, 2) to understand the primary reason for introducing component interfaces, and 3) what a whiteboard component model looks like and how to use it.
+The goal of this assignment is to:
+
+- Understand the pros and cons of the basic
+  ServiceLoader extension mechanism provided by the Java standard platform.
+- Understand the primary reason for introducing component interfaces.
+- What a whiteboard component model looks like and how to use it.
 
 ### Classwork
 
