@@ -15,5 +15,5 @@ make run
 ```sh
 mvn install -f AsteroidsEntityFramework/pom.xml
 mvn package -f AsteroidsEntityFramework/Core/pom.xml
-java -jar bin/GameLab.jar
+java -jar bin/JavaLab.jar
 ```
