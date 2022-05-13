@@ -1,7 +1,7 @@
 COMPONENT=AsteroidsEntityFramework
 JAVA_FILES=$(shell find ${COMPOENT} -type f -name "*.java")
 POM_FILES=$(shell find ${COMPOENT} -type f -name "pom.xml")
-PACKAGE=bin/GameLab.jar
+PACKAGE=bin/JavaLab.jar
 
 default all:run 
 

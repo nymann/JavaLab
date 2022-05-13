@@ -70,6 +70,7 @@
             <artifactId>Common</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <!-- Needed to locate SPI services-->
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>Player</artifactId>
@@ -80,7 +81,6 @@
             <artifactId>Enemy</artifactId>
             <version>${project.version}</version>
         </dependency>
-
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>Asteroid</artifactId>
@@ -91,7 +91,6 @@
             <artifactId>CollisionDetection</artifactId>
             <version>${project.version}</version>
         </dependency>
-
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>LifeProcesser</artifactId>
@@ -112,27 +111,26 @@
             </plugin>
 
             <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
-                    <outputDirectory>../../bin</outputDirectory>
-                    <archive>
-                        <manifest>
-                            <mainClass>dk.sdu.mmmi.cbse.main.Main</mainClass>
-                        </manifest>
-                    </archive>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <finalName>GameLab</finalName>
-                    <appendAssemblyId>false</appendAssemblyId>
-                </configuration>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.3.0</version>
                 <executions>
                     <execution>
-                        <id>make-assembly</id> <!-- this is used for inheritance merges -->
-                        <phase>package</phase> <!-- bind to the packaging phase -->
                         <goals>
-                            <goal>single</goal>
+                            <goal>shade</goal>
                         </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>dk.sdu.mmmi.cbse.main.Main</mainClass>
+                                </transformer>
+                            </transformers>
+                            <finalName>JavaLab</finalName>
+                            <outputDirectory>../../bin</outputDirectory>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
